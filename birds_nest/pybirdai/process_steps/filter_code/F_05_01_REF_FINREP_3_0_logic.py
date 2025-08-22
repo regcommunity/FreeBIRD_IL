@@ -2,66 +2,68 @@ from pybirdai.bird_data_model import *
 from pybirdai.process_steps.pybird.orchestration import Orchestration
 from pybirdai.process_steps.pybird.csv_converter import CSVConverter
 from datetime import datetime
-from pybirdai.annotations.decorators import lineage
+from pybirdai.annotations.decorators import lineage, lineage_polymorphic, track_table_init
 
 class F_05_01_REF_FINREP_3_0_UnionItem:
 	base = None #F_05_01_REF_FINREP_3_0_Base
-	@lineage(dependencies={"base.GRSS_CRRYNG_AMNT"})
+	@lineage_polymorphic(base_dependencies={"base.GRSS_CRRYNG_AMNT"})
 	def GRSS_CRRYNG_AMNT(self) -> int:
+		print(f"🔍 UnionItem.GRSS_CRRYNG_AMNT CALLED - base: {self.base.__class__.__name__ if self.base else 'None'}")
 		return self.base.GRSS_CRRYNG_AMNT()
-	@lineage(dependencies={"base.TYP_CLLTRL"})
+	@lineage_polymorphic(base_dependencies={"base.TYP_CLLTRL"})
 	def TYP_CLLTRL(self) -> str:
 		''' return string from TYP_PRTCTN enumeration '''
 		return self.base.TYP_CLLTRL()
-	@lineage(dependencies={"base.PRPS"})
+	@lineage_polymorphic(base_dependencies={"base.PRPS"})
 	def PRPS(self) -> str:
 		''' return string from PRPS enumeration '''
 		return self.base.PRPS()
-	@lineage(dependencies={"base.ACCNTNG_CLSSFCTN"})
+	@lineage_polymorphic(base_dependencies={"base.ACCNTNG_CLSSFCTN"})
 	def ACCNTNG_CLSSFCTN(self) -> str:
 		''' return string from ACCNTNG_CLSSFCTN enumeration '''
+		print(f"🔍 UnionItem.ACCNTNG_CLSSFCTN CALLED - base: {self.base.__class__.__name__ if self.base else 'None'}")
 		return self.base.ACCNTNG_CLSSFCTN()
-	@lineage(dependencies={"base.HLD_SL_INDCTR"})
+	@lineage_polymorphic(base_dependencies={"base.HLD_SL_INDCTR"})
 	def HLD_SL_INDCTR(self) -> str:
 		''' return string from HLD_SL_INDCTR enumeration '''
 		return self.base.HLD_SL_INDCTR()
-	@lineage(dependencies={"base.SBJCT_IMPRMNT_INDCTR"})
+	@lineage_polymorphic(base_dependencies={"base.SBJCT_IMPRMNT_INDCTR"})
 	def SBJCT_IMPRMNT_INDCTR(self) -> str:
 		''' return string from SBJCT_IMPRMNT_INDCTR enumeration '''
 		return self.base.SBJCT_IMPRMNT_INDCTR()
-	@lineage(dependencies={"base.INSTTTNL_SCTR"})
+	@lineage_polymorphic(base_dependencies={"base.INSTTTNL_SCTR"})
 	def INSTTTNL_SCTR(self) -> str:
 		''' return string from INSTTTNL_SCTR enumeration '''
 		return self.base.INSTTTNL_SCTR()
-	@lineage(dependencies={"base.MLTLTRL_DVLPMNT_BNK_INDCTR"})
+	@lineage_polymorphic(base_dependencies={"base.MLTLTRL_DVLPMNT_BNK_INDCTR"})
 	def MLTLTRL_DVLPMNT_BNK_INDCTR(self) -> str:
 		''' return string from MLTLTRL_DVLPMNT_BNK_INDCTR enumeration '''
 		return self.base.MLTLTRL_DVLPMNT_BNK_INDCTR()
-	@lineage(dependencies={"base.PRTY_RL_TYP"})
+	@lineage_polymorphic(base_dependencies={"base.PRTY_RL_TYP"})
 	def PRTY_RL_TYP(self) -> str:
 		''' return string from ENTTY_RL_TYP enumeration '''
 		return self.base.PRTY_RL_TYP()
-	@lineage(dependencies={"base.MN_DBTR_INDCTR"})
+	@lineage_polymorphic(base_dependencies={"base.MN_DBTR_INDCTR"})
 	def MN_DBTR_INDCTR(self) -> str:
 		''' return string from MN_DBTR_INDCTR enumeration '''
 		return self.base.MN_DBTR_INDCTR()
-	@lineage(dependencies={"base.TYP_INSTRMNT"})
+	@lineage_polymorphic(base_dependencies={"base.TYP_INSTRMNT"})
 	def TYP_INSTRMNT(self) -> str:
 		''' return string from TYP_INSTRMNT enumeration '''
 		return self.base.TYP_INSTRMNT()
-	@lineage(dependencies={"base.RPYMNT_RGHTS"})
+	@lineage_polymorphic(base_dependencies={"base.RPYMNT_RGHTS"})
 	def RPYMNT_RGHTS(self) -> str:
 		''' return string from RPYMNT_RGHTS enumeration '''
 		return self.base.RPYMNT_RGHTS()
-	@lineage(dependencies={"base.PRJCT_FNNC_LN"})
+	@lineage_polymorphic(base_dependencies={"base.PRJCT_FNNC_LN"})
 	def PRJCT_FNNC_LN(self) -> str:
 		''' return string from PRJCT_FNNC_LN enumeration '''
 		return self.base.PRJCT_FNNC_LN()
-	@lineage(dependencies={"base.NGTBL_SCRTY_INDCTR"})
+	@lineage_polymorphic(base_dependencies={"base.NGTBL_SCRTY_INDCTR"})
 	def NGTBL_SCRTY_INDCTR(self) -> str:
 		''' return string from NGTBL_SCRTY enumeration '''
 		return self.base.NGTBL_SCRTY_INDCTR()
-	@lineage(dependencies={"base.CRRYNG_AMNT"})
+	@lineage_polymorphic(base_dependencies={"base.CRRYNG_AMNT"})
 	def CRRYNG_AMNT(self) -> int:
 		return self.base.CRRYNG_AMNT()
 
@@ -156,6 +158,7 @@ class F_05_01_REF_FINREP_3_0_UnionTable :
 			items.append(newItem)
 		return items
 
+	@track_table_init
 	def init(self):
 		Orchestration().init(self)
 		self.F_05_01_REF_FINREP_3_0_UnionItems = []
@@ -326,6 +329,7 @@ class Finance_leases(F_05_01_REF_FINREP_3_0_Base):
 	@lineage(dependencies={"SCRTY_EXCHNG_TRDBL_DRVTV.NGTBL_SCRTY_INDCTR"})
 	def NGTBL_SCRTY_INDCTR(self):
 		return self.SCRTY_EXCHNG_TRDBL_DRVTV.NGTBL_SCRTY_INDCTR
+
 
 class Other_loans(F_05_01_REF_FINREP_3_0_Base):
 	CLLTRL = None # CLLTRL
@@ -585,12 +589,21 @@ class Non_Negotiable_bonds(F_05_01_REF_FINREP_3_0_Base):
 		return self.SCRTY_EXCHNG_TRDBL_DRVTV.NGTBL_SCRTY_INDCTR
 	pass
 
+
 class F_05_01_REF_FINREP_3_0_Advances_that_are_not_loans_Table:
 	INSTRMNT_Table = None # INSTRMNT
 	INSTRMNT_ENTTY_RL_ASSGNMNT_Table = None # INSTRMNT_ENTTY_RL_ASSGNMNT
 	INSTRMNT_RL_Table = None # INSTRMNT_RL
 	PRTY_Table = None # PRTY
 	Advances_that_are_not_loanss = []# Advances_that_are_not_loans[]
+	@lineage(dependencies={"INSTRMNT.TYP_INSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theINSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theENTTY_RL",		
+		"ENTTY_RL.thePRTY",
+		"INSTRMNT.INSTRMNT_uniqueID",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.INSTRMNT_ENTTY_RL_ASSGNMNT_uniqueID",
+		"PRTY.PRTY_uniqueID"
+		})
 	def calc_Advances_that_are_not_loanss(self) :
 		items = [] # 
 		# Join up any refered tables that you need to join
@@ -616,6 +629,7 @@ class F_05_01_REF_FINREP_3_0_Advances_that_are_not_loans_Table:
 				items.append(newItem)
 	
 		return items
+	@track_table_init
 	def init(self):
 		Orchestration().init(self)
 		self.Advances_that_are_not_loanss = []
@@ -630,8 +644,16 @@ class F_05_01_REF_FINREP_3_0_Credit_card_debt_Table:
 	INSTRMNT_ENTTY_RL_ASSGNMNT_Table = None # INSTRMNT_ENTTY_RL_ASSGNMNT
 	INSTRMNT_RL_Table = None # INSTRMNT_RL
 	PRTY_Table = None # PRTY
-	SCRTY_EXCHNG_TRDBL_DRVTV_Table = None # SCRTY_EXCHNG_TRDBL_DRVTV
 	Credit_card_debts = []# Credit_card_debt[]
+
+	@lineage(dependencies={"INSTRMNT.TYP_INSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theINSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theENTTY_RL",		
+		"ENTTY_RL.thePRTY",
+		"INSTRMNT.INSTRMNT_uniqueID",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.INSTRMNT_ENTTY_RL_ASSGNMNT_uniqueID",
+		"PRTY.PRTY_uniqueID"
+		})
 	def calc_Credit_card_debts(self) :
 		items = [] # 
 		# Join up any refered tables that you need to join
@@ -676,8 +698,15 @@ class F_05_01_REF_FINREP_3_0_Finance_leases_Table:
 	INSTRMNT_ENTTY_RL_ASSGNMNT_Table = None # INSTRMNT_ENTTY_RL_ASSGNMNT
 	INSTRMNT_RL_Table = None # INSTRMNT_RL
 	PRTY_Table = None # PRTY
-	SCRTY_EXCHNG_TRDBL_DRVTV_Table = None # SCRTY_EXCHNG_TRDBL_DRVTV
 	Finance_leasess = []# Finance_leases[]
+	@lineage(dependencies={"INSTRMNT.TYP_INSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theINSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theENTTY_RL",		
+		"ENTTY_RL.thePRTY",
+		"INSTRMNT.INSTRMNT_uniqueID",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.INSTRMNT_ENTTY_RL_ASSGNMNT_uniqueID",
+		"PRTY.PRTY_uniqueID"
+		})
 	def calc_Finance_leasess(self) :
 		items = [] # 
 		# Join up any refered tables that you need to join
@@ -722,9 +751,15 @@ class F_05_01_REF_FINREP_3_0_Other_loans_Table:
 	INSTRMNT_ENTTY_RL_ASSGNMNT_Table = None # INSTRMNT_ENTTY_RL_ASSGNMNT
 	INSTRMNT_RL_Table = None # INSTRMNT_RL
 	PRTY_Table = None # PRTY
-	SCRTY_EXCHNG_TRDBL_DRVTV_Table = None # SCRTY_EXCHNG_TRDBL_DRVTV
 	Other_loanss = []# Other_loans[]	
-	
+	@lineage(dependencies={"INSTRMNT.TYP_INSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theINSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theENTTY_RL",		
+		"ENTTY_RL.thePRTY",
+		"INSTRMNT.INSTRMNT_uniqueID",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.INSTRMNT_ENTTY_RL_ASSGNMNT_uniqueID",
+		"PRTY.PRTY_uniqueID"
+		})
 	def calc_Other_loanss(self) :
 		
 		items = [] # Other_loans[
@@ -756,10 +791,19 @@ class F_05_01_REF_FINREP_3_0_Other_loans_Table:
 				items.append(newItem)
 	
 		return items
+	@track_table_init
 	def init(self):
 		Orchestration().init(self)
 		self.Other_loanss = []
 		self.Other_loanss.extend(self.calc_Other_loanss())
+		
+		# Explicitly track the created Other_loans objects for lineage
+		#from pybirdai.annotations.decorators import _lineage_context
+		#orchestration = _lineage_context.get('orchestration')
+		#if orchestration and hasattr(orchestration, 'track_data_processing'):
+		#	print(f"🔍 Other_loans_Table: Tracking {len(self.Other_loanss)} Other_loans objects")
+		#	orchestration.track_data_processing("Other_loans", self.Other_loanss, self.Other_loanss)
+		
 		CSVConverter.persist_object_as_csv(self,True)
 		return None
 
@@ -770,9 +814,15 @@ class F_05_01_REF_FINREP_3_0_Trade_receivables_Table:
 	INSTRMNT_ENTTY_RL_ASSGNMNT_Table = None # INSTRMNT_ENTTY_RL_ASSGNMNT
 	INSTRMNT_RL_Table = None # INSTRMNT_RL
 	PRTY_Table = None # PRTY
-	SCRTY_EXCHNG_TRDBL_DRVTV_Table = None # SCRTY_EXCHNG_TRDBL_DRVTV
 	Other_loanss = []# Other_loans[]	
-	
+	@lineage(dependencies={"INSTRMNT.TYP_INSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theINSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theENTTY_RL",		
+		"ENTTY_RL.thePRTY",
+		"INSTRMNT.INSTRMNT_uniqueID",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.INSTRMNT_ENTTY_RL_ASSGNMNT_uniqueID",
+		"PRTY.PRTY_uniqueID",
+		})
 	def calc_Trade_receivabless(self) :
 		items = [] # Other_loans[
 		# Join up any refered tables that you need to join
@@ -816,6 +866,14 @@ class F_05_01_REF_FINREP_3_0_On_demand_and_short_notice_Table:
 	INSTRMNT_RL_Table = None # INSTRMNT_RL
 	PRTY_Table = None # PRTY
 	On_demand_and_short_notices = []# On_demand_and_short_notice[]
+	@lineage(dependencies={"INSTRMNT.TYP_INSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theINSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theENTTY_RL",		
+		"ENTTY_RL.thePRTY",
+		"INSTRMNT.INSTRMNT_uniqueID",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.INSTRMNT_ENTTY_RL_ASSGNMNT_uniqueID",
+		"PRTY.PRTY_uniqueID"
+		})
 	def calc_On_demand_and_short_notices(self) :
 		items = [] # On_demand_and_short_notice
 		# Join up any refered tables that you need to join
@@ -853,6 +911,14 @@ class F_05_01_REF_FINREP_3_0_Reverse_repurchase_agreements_Table:
 	INSTRMNT_RL_Table = None # INSTRMNT_RL
 	PRTY_Table = None # PRTY
 	Reverse_repurchase_agreementss = []# Reverse_repurchase_agreements[]
+	@lineage(dependencies={"INSTRMNT.TYP_INSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theINSTRMNT",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.theENTTY_RL",		
+		"ENTTY_RL.thePRTY",
+		"INSTRMNT.INSTRMNT_uniqueID",
+		"INSTRMNT_ENTTY_RL_ASSGNMNT.INSTRMNT_ENTTY_RL_ASSGNMNT_uniqueID",
+		"PRTY.PRTY_uniqueID"
+		})
 	def calc_Reverse_repurchase_agreementss(self) :
 		items = [] # On_demand_and_short_notice
 		# Join up any refered tables that you need to join
@@ -892,7 +958,19 @@ class F_05_01_REF_FINREP_3_0_Non_Negotiable_bonds_Table:
 	SCRTY_ENTTY_RL_ASSGNMNT_Table = None # SCRTY_ENTTY_RL_ASSGNMNT
 	SCRTY_PSTN_Table = None # SCRTY_PSTN
 	Non_Negotiable_bondss = []# Non_Negotiable_bonds[]
-	
+	@lineage(dependencies={"LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT.theLNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT",
+		"LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT.theSCRTY_PSTN",
+		"SCRTY_PSTN.theSCRTY_EXCHNG_TRDBL_DRVTV",		
+		"SCRTY_ENTTY_RL_ASSGNMNT.theSCRTY_EXCHNG_TRDBL_DRVTV",
+		"SCRTY_ENTTY_RL_ASSGNMNT.theENTTY_RL",
+		"ENTTY_RL.thePRTY",
+		"PRTY.PRTY_uniqueID",
+		"SCRTY_EXCHNG_TRDBL_DRVTV.NGTBL_SCRTY_INDCTR",
+		"LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT.LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_uniqueID",
+		"SCRTY_PSTN.SCRTY_PSTN_uniqueID",
+		"SCRTY_EXCHNG_TRDBL_DRVTV.SCRTY_EXCHNG_TRDBL_DRVTV_uniqueID",
+		"ENTTY_RL.ENTTY_RL_uniqueID"		
+		})
 	def calc_Non_Negotiable_bondss(self) :
 		items = [] # Non_Negotiable_bonds[
 		for long_Security_accntng_classification in self.LNG_SCRTY_PSTN_PRDNTL_PRTFL_ASSGNMNT_ACCNTNG_CLSSFCTN_FNNCL_ASSTS_ASSGNMNT_Table:
