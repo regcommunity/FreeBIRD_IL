@@ -8,8 +8,8 @@ TYP_INSTRMNT_1491,Commercial real estate CRE loans,Commercial real estate CRE lo
 TYP_INSTRMNT_251,Loans and advances,Other loans
 TYP_INSTRMNT_251,Loans and advances,Non Negotiable bonds
 TYP_INSTRMNT_251,Loans and advances,Credit card debt
-TYP_INSTRMNT_251,Loans and advances,Trade receivable
-TYP_INSTRMNT_251,Loans and advances,Financial lease
+TYP_INSTRMNT_251,Loans and advances,Trade receivables
+TYP_INSTRMNT_251,Loans and advances,Financial leases
 SCRTY_EXCHNG_TRDBL_DRVTV_TYP_11,Debt securities,Debt securities
 TYP_INSTRMNT_2102,Certificates of deposits,Certificates of deposits
 TYP_INSTRMNT_2104,Hybrid contracts,Hybrid contracts
