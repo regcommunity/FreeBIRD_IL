@@ -5,12 +5,15 @@ TYP_INSTRMNT_114,Other loans,Non Negotiable bonds
 TYP_INSTRMNT_22,Advances that are not loans,Advances that are not loans
 TYP_INSTRMNT_1000,Advances that are not loans,On demand and short notice
 TYP_INSTRMNT_1491,Commercial real estate CRE loans,Commercial real estate CRE loans
-TYP_INSTRMNT_251,Loans and advances,Other loans
-TYP_INSTRMNT_251,Loans and advances,Non Negotiable bonds
-TYP_INSTRMNT_251,Loans and advances,Credit card debt
-TYP_INSTRMNT_251,Loans and advances,Trade receivables
-TYP_INSTRMNT_251,Loans and advances,Financial leases
-SCRTY_EXCHNG_TRDBL_DRVTV_TYP_11,Debt securities,Debt securities
+TYP_INSTRMNT_251,Debt Securities and Loans and advances,Other loans
+TYP_INSTRMNT_251,Debt Securities and Loans and advances,Non Negotiable bonds
+TYP_INSTRMNT_251,Debt Securities and Loans and advances,Credit card debt
+TYP_INSTRMNT_251,Debt Securities and Loans and advances,Trade receivables
+TYP_INSTRMNT_251,Debt Securities and Loans and advances,Advances that are not loans
+TYP_INSTRMNT_251,Debt Securities and Loans and advances,Finance leases
+TYP_INSTRMNT_251,Debt Securities and Loans and advances,On demand and short notice
+TYP_INSTRMNT_251,Debt Securities and Loans and advances,Reverse repurchase agreements
+TYP_INSTRMNT_251,Debt Securities and Loans and advances,Debt securities
 TYP_INSTRMNT_2102,Certificates of deposits,Certificates of deposits
 TYP_INSTRMNT_2104,Hybrid contracts,Hybrid contracts
 TYP_INSTRMNT_2105,Other debt securities issued,Other debt securities issued
@@ -18,12 +21,12 @@ TYP_INSTRMNT_2106,Other debt securities issued - convertible compound financial 
 TYP_INSTRMNT_2107,Other debt securities issued - non-convertible,Other debt securities issued - non-convertible
 TYP_INSTRMNT_211,Debt securities - Asset backed securities ABS,Debt securities - Asset backed securities ABS
 TYP_INSTRMNT_212,Debt securities - Covered bonds,Debt securities - Covered bonds
-TYP_INSTRMNT_241,Equity instruments,Equity instruments
-TYP_INSTRMNT_241,Equity instruments,Equity instruments
+TYP_INSTRMNT_241,Equity instruments,Equity instruments security
+TYP_INSTRMNT_241,Equity instruments,Equity instruments instrument
 TYP_INSTRMNT_260,Current accounts,Current accounts
 TYP_INSTRMNT_300,Repurchase agreements,Repurchase agreements
-TYP_INSTRMNT_310,Derivatives,Derivatives
-TYP_INSTRMNT_310,Derivatives,Derivatives
+TYP_INSTRMNT_310,Derivatives,Derivatives ETC
+TYP_INSTRMNT_310,Derivatives,Derivatives OTC
 TYP_INSTRMNT_3101,Credit default swap,Credit default swap
 TYP_INSTRMNT_3102,Credit spread option,Credit spread option
 TYP_INSTRMNT_3103,Total return swap,Total return swap
