@@ -6,7 +6,6 @@ TYP_INSTRMNT_22,Advances that are not loans,Advances that are not loans
 TYP_INSTRMNT_1000,Advances that are not loans,On demand and short notice
 TYP_INSTRMNT_1491,Commercial real estate CRE loans,Commercial real estate CRE loans
 TYP_INSTRMNT_251,Debt Securities and Loans and advances,Other loans
-TYP_INSTRMNT_251,Debt Securities and Loans and advances,Non Negotiable bonds
 TYP_INSTRMNT_251,Debt Securities and Loans and advances,Credit card debt
 TYP_INSTRMNT_251,Debt Securities and Loans and advances,Trade receivables
 TYP_INSTRMNT_251,Debt Securities and Loans and advances,Advances that are not loans
@@ -26,7 +25,6 @@ TYP_INSTRMNT_241,Equity instruments,Equity instruments instrument
 TYP_INSTRMNT_260,Current accounts,Current accounts
 TYP_INSTRMNT_300,Repurchase agreements,Repurchase agreements
 TYP_INSTRMNT_310,Derivatives,Derivatives ETC
-TYP_INSTRMNT_310,Derivatives,Derivatives OTC
 TYP_INSTRMNT_3101,Credit default swap,Credit default swap
 TYP_INSTRMNT_3102,Credit spread option,Credit spread option
 TYP_INSTRMNT_3103,Total return swap,Total return swap
